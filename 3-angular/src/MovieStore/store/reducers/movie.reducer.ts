@@ -16,7 +16,7 @@ export const initialState: MovieState = {
 const MovieReducer = createReducer(
   initialState,
 
-  on(MovieActions.searchMovies, (state) => ({
+  on(MovieActions.getMoviesToHomePage, (state) => ({
     ...state,
     loading: true,
   })),

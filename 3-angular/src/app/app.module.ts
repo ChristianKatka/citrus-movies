@@ -6,6 +6,7 @@ import { RouterState, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { HomeModule } from 'src/Home/home.module';
+import { MovieModule } from 'src/Movie/movie.module';
 import { MovieStoreModule } from 'src/MovieStore/movie-store.module';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
@@ -28,7 +29,8 @@ import { RouterStateSerializer } from './store/router-state.serializer';
     environment.production ? [] : StoreDevtoolsModule.instrument(),
     EffectsModule.forRoot(effects),
     HomeModule,
-    MovieStoreModule
+    MovieStoreModule,
+    MovieModule
   ],
   providers: [],
   bootstrap: [AppComponent],

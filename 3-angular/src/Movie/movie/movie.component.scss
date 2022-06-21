@@ -1,0 +1,51 @@
+img {
+  height: 18rem;
+  width: 100%;
+  object-fit: cover;
+}
+
+h3 {
+  font-size: 23px;
+}
+
+.heading-wrapper {
+  margin-top: 2rem;
+}
+
+.title {
+  margin: 0;
+  color: white;
+  font-weight: bold;
+}
+
+mat-icon {
+  color: #555555;
+}
+
+.watch-now-wrapper {
+  margin-top: 1.5rem;
+}
+
+.watch-now-button {
+  border-radius: 15px;
+  background-color: #929292;
+  padding: 6px 20px;
+
+  span {
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+  }
+}
+
+.stars {
+  mat-icon {
+    color: #d9ba0f;
+    transform: scale(0.9);
+  }
+}
+
+.plot {
+  margin-top: 1.5rem;
+  color: #8b8b8b;
+}

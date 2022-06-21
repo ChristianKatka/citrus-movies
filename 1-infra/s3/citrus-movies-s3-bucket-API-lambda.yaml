@@ -1,0 +1,30 @@
+
+Description: S3 Bucket for citrus movies API koa lambda
+
+Resources:
+  CitrusMoviesS3BucketAPILambda:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: Private
+      BucketName: citrus-movies-api-lambda-bucket
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls : true
+        BlockPublicPolicy : true
+        IgnorePublicAcls : true
+        RestrictPublicBuckets : true
+      CorsConfiguration:
+        CorsRules:
+          - AllowedHeaders:
+              - "*"
+            MaxAge: "300"
+            AllowedMethods:
+              - GET
+              - HEAD
+              - POST
+              - PUT
+              - DELETE
+            AllowedOrigins:
+              - "*"
+      Tags:
+        - Key: name
+          Value: s3 bucket for citrus movies API lambda

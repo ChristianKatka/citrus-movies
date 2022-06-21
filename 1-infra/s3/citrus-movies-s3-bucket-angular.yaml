@@ -1,0 +1,57 @@
+
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Description: S3 Bucket for citrus-movies angular
+
+Parameters:
+  BucketName:
+    Type: String
+    Description: Bucket name used to create s3 bucket
+    MinLength: '1'
+    MaxLength: '25'
+
+Resources:
+  CitrusMoviesS3BucketAngular:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: Private
+      BucketName: !Ref BucketName
+      WebsiteConfiguration:
+        IndexDocument: index.html
+        ErrorDocument: index.html
+
+
+  CloudFrontOAIs3BucketAngular:
+    Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
+    Properties:
+      CloudFrontOriginAccessIdentityConfig:
+        Comment: Origin Access Identity for distribution of s3 bucket for citrus-movies angular
+
+
+  BucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    DependsOn: CitrusMoviesS3BucketAngular
+    Properties:
+      Bucket: !Ref 'CitrusMoviesS3BucketAngular'
+      PolicyDocument:
+        Statement:
+          - Action:
+              - s3:GetObject
+            Effect: Allow
+            Resource: 
+                - !Sub "arn:aws:s3:::${CitrusMoviesS3BucketAngular}/*"
+            Principal:
+              CanonicalUser: !GetAtt CloudFrontOAIs3BucketAngular.S3CanonicalUserId
+
+Outputs:
+  CloudFrontOAIs3BucketAngular:
+    Description: CloudFrontOAIs3BucketAngular
+    Value: !Ref CloudFrontOAIs3BucketAngular
+    Export:
+      Name: citrus-movies-s3-bucket-angular-cloudfront-oai
+
+  s3appDomainName:
+    Description: s3 Bucket Domain Name citrus-movies angular
+    Value: !GetAtt CitrusMoviesS3BucketAngular.DomainName
+    Export:
+      Name: citrus-movies-angular-bucket-domain-name

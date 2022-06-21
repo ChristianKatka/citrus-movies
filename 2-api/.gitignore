@@ -1,0 +1,8 @@
+# dependencies
+/node_modules
+.env
+/build
+
+# Mac OSX Finder files.
+**/.DS_Store
+.DS_Store

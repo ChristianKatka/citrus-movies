@@ -1,1 +1,8 @@
-<h1>home</h1>
+<main *ngIf="!(isLoading$ | async)">
+  <citrus-movies-top-search></citrus-movies-top-search>
+  <citrus-movies-home-page-movies-cards></citrus-movies-home-page-movies-cards>
+</main>
+
+<section fxLayoutAlign="center center">
+  <citrus-movies-loading-spinner></citrus-movies-loading-spinner>
+</section>

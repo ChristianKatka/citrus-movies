@@ -1,0 +1,17 @@
+<main fxLayout="column" fxLayoutAlign="center center">
+  <h3>Hello, what do you want to watch?</h3>
+
+  <form [formGroup]="searchFormGroup">
+    <mat-form-field appearance="standard">
+      <mat-label>Search</mat-label>
+      <input
+        type="text"
+        matInput
+        formControlName="search"
+        (change)="userInput()"
+      />
+      <mat-placeholder>Search</mat-placeholder>
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </form>
+</main>

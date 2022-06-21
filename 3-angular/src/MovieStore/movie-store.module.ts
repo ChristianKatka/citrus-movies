@@ -16,4 +16,4 @@ import { featureKey, reducers } from './store/reducers';
   declarations: [],
   exports: [],
 })
-export class PostsStoreModule {}
+export class MovieStoreModule {}

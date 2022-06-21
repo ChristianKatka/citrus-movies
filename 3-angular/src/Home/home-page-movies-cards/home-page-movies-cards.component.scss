@@ -1,0 +1,25 @@
+main {
+  background-color: #273546;
+  border-radius: 15px 15px 0 0;
+  margin-top: -3rem;
+  padding-bottom: 9rem;
+}
+
+.heading-wrapper {
+  margin-top: 2rem;
+
+  .first {
+    color: #9eaec3;
+    font-weight: bold;
+    font-size: 15px;
+  }
+
+  .secondary {
+    font-size: 15px;
+    color: #4e5866;
+  }
+}
+
+.cards-wrapper {
+  margin-top: 1rem;
+}

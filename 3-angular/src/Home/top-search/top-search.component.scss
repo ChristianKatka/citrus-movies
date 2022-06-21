@@ -1,0 +1,24 @@
+@import "../../styles.scss";
+@include disable-auto-zoom-on-iphone-input-fields;
+
+mat-icon {
+  font-size: 1.3em;
+}
+
+main {
+  background-color: #5BA2D4;
+}
+
+h3 {
+  font-weight: bold;
+  font-size: 27px;
+  color: white;
+  padding-top: 3rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  line-height: 40px;
+}
+
+form {
+  padding-bottom: 6rem;
+}

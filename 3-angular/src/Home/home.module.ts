@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { components } from '.';
 import { MaterialModule } from '../material.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
@@ -13,6 +14,7 @@ import { MaterialModule } from '../material.module';
     MaterialModule,
     FlexLayoutModule,
     ReactiveFormsModule,
+    SharedModule
   ],
 
   declarations: [...components],

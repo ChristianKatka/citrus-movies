@@ -17,8 +17,8 @@ Resources:
         - DELETE
         MaxAge: 60
       DefaultRouteSettings:
-        ThrottlingBurstLimit: 10
-        ThrottlingRateLimit: 10
+        ThrottlingBurstLimit: 50
+        ThrottlingRateLimit: 50
   LambdaExecutionRole:
     Type: AWS::IAM::Role
     Properties:
@@ -49,9 +49,9 @@ Resources:
   API:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: s3://citrus-movies-api-lambda-bucket/90fa0d4f1c836d3d5f323a27d4d30f38
+      CodeUri: s3://citrus-movies-api-lambda-bucket/9c0c8d44707a613827ccbaf027f0ff5a
       Handler: index.handler
-      MemorySize: 256
+      MemorySize: 2048
       Role:
         Fn::GetAtt:
         - LambdaExecutionRole

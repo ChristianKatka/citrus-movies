@@ -1,13 +1,19 @@
-<main>
+<!-- <main>
   <citrus-movies-top-search></citrus-movies-top-search>
   <citrus-movies-home-page-movies-cards></citrus-movies-home-page-movies-cards>
-</main>
+</main> -->
 
-<!-- <main *ngIf="!(isLoading$ | async)">
-  <citrus-movies-top-search></citrus-movies-top-search>
-  <citrus-movies-home-page-movies-cards></citrus-movies-home-page-movies-cards>
+<main *ngIf="!(isLoading$ | async)">
+  <citrus-movies-top-search
+    (inputtedSearchText)="onInputtedSearchText($event)"
+  ></citrus-movies-top-search>
+  <citrus-movies-home-page-movies-cards
+    [homePageMovies]="homePageMovies$ | async"
+    [isLoadingSearchMovies]="isLoadingSearchMovies$ | async"
+    (onSelectMovie)="onSelectMovie($event)"
+  ></citrus-movies-home-page-movies-cards>
 </main>
 
 <section *ngIf="isLoading$ | async" fxLayoutAlign="center center">
   <citrus-movies-loading-spinner></citrus-movies-loading-spinner>
-</section> -->
+</section>

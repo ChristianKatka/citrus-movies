@@ -8,6 +8,10 @@ export const getMovieByTitleOMDB = async (title: string) => {
 
   const ombdApiKeyValue = await getApiKeyFromParameterStore(ombdKey);
 
+  console.log('asd tässä');
+
+  console.log(title);
+  
   const response = await fetch(
     `${OMDB_URL_SEARCH}${title}&apikey=${ombdApiKeyValue}`
   );

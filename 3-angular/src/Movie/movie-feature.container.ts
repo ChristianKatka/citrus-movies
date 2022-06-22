@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { MovieActions } from 'src/MovieStore/store/actions';
 import { MoviesExtendedAppState } from 'src/MovieStore/store/reducers';
@@ -8,13 +8,12 @@ import { MovieSelectors } from 'src/MovieStore/store/selectors';
   templateUrl: 'movie-feature.container.html',
   styleUrls: ['movie-feature.container.scss'],
 })
-export class MovieFeatureContainerComponent implements OnInit {
-  // isLoading$ = this.store.select(MovieSelectors.isLoading);
-  // homePageMovies$ = this.store.select(MovieSelectors.getMoviesToHomePage);
+export class MovieFeatureContainerComponent implements OnDestroy {
+  selectedMovie$ = this.store.select(MovieSelectors.getSelectedMovie);
 
-  // constructor(private store: Store<MoviesExtendedAppState>) {}
+  constructor(private store: Store<MoviesExtendedAppState>) {}
 
-  ngOnInit() {
-    // this.store.dispatch(MovieActions.getMoviesToHomePage());
+  ngOnDestroy(): void {
+    this.store.dispatch(MovieActions.clearMovieSelection());
   }
 }

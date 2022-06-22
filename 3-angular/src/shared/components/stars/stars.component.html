@@ -1,0 +1,42 @@
+<div class="stars" fxLayout fxLayoutGap="5px">
+  <mat-icon
+    [ngClass]="{
+      'star-filled': starRatingbyImdb.firstStarFilled === true,
+      'star-not-filled': starRatingbyImdb.firstStarFilled === false
+    }"
+    matSuffix
+    >star</mat-icon
+  >
+  <mat-icon
+    [ngClass]="{
+      'star-filled': starRatingbyImdb.secondStarFilled === true,
+      'star-not-filled': starRatingbyImdb.secondStarFilled === false
+    }"
+    matSuffix
+    >star</mat-icon
+  >
+  <mat-icon
+    [ngClass]="{
+      'star-filled': starRatingbyImdb.thirdStarFilled === true,
+      'star-not-filled': starRatingbyImdb.thirdStarFilled === false
+    }"
+    matSuffix
+    >star</mat-icon
+  >
+  <mat-icon
+    [ngClass]="{
+      'star-filled': starRatingbyImdb.fourthStarFilled === true,
+      'star-not-filled': starRatingbyImdb.fourthStarFilled === false
+    }"
+    matSuffix
+    >star</mat-icon
+  >
+  <mat-icon
+    [ngClass]="{
+      'star-filled': starRatingbyImdb.fifthStarFilled === true,
+      'star-not-filled': starRatingbyImdb.fifthStarFilled === false
+    }"
+    matSuffix
+    >star</mat-icon
+  >
+</div>

@@ -1,5 +1,6 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import { MovieActions } from '../actions';
+import { countStarsToMovies } from '../utils/count-stars-to-movies.util';
 
 export interface MovieState {
   moviesHomePage: { [title: string]: {} };
@@ -21,9 +22,20 @@ const MovieReducer = createReducer(
     loading: true,
   })),
 
+  on(MovieActions.selectMovie, (state, { movieTitle }) => ({
+    ...state,
+    selectedMovie: movieTitle,
+  })),
+
+  on(MovieActions.clearMovieSelection, (state) => ({
+    ...state,
+    selectedMovie: undefined,
+  })),
+
   on(MovieActions.getMoviesToHomePageSuccess, (state, { movies }) => {
-    console.log(movies);
-    const moviesList = movies.reduce(
+    // console.log(JSON.stringify(movies));
+    const movieListWithStars = countStarsToMovies(movies);
+    const moviesList = movieListWithStars.reduce(
       (items: { [title: string]: any }, item: any) => ({
         ...items,
         [item.Title]: item,
@@ -39,11 +51,23 @@ const MovieReducer = createReducer(
     };
   }),
 
-  on(MovieActions.searchMoviesSuccess, (state, { movies }) => {
-    console.log(movies);
-
+  on(MovieActions.searchMoviesSuccess, (state, { movie }) => {
+    if (!movie)
+      return {
+        ...state,
+        moviesHomePage: {},
+      };
+    const movieListWithStars = countStarsToMovies([movie]);
+    const moviesList = movieListWithStars.reduce(
+      (items: { [title: string]: any }, item: any) => ({
+        ...items,
+        [item.Title]: item,
+      }),
+      {}
+    );
     return {
       ...state,
+      moviesHomePage: moviesList,
     };
   })
 );

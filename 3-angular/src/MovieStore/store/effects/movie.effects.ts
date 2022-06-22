@@ -1,13 +1,37 @@
 import { Injectable } from '@angular/core';
+import { RouterActions } from '@app/store/actions';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { Store } from '@ngrx/store';
 import { debounceTime, of } from 'rxjs';
-import { catchError, map, switchMap } from 'rxjs/operators';
+import { catchError, map, switchMap, withLatestFrom } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { MovieService } from 'src/MovieStore/services/movie.service';
 import { MovieActions } from '../actions';
+import { MoviesExtendedAppState } from '../reducers';
+import { MovieSelectors } from '../selectors';
 
 @Injectable()
 export class MovieEffects {
+  checkIfNeedToLoadMoviesToHomePage$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(MovieActions.checkIfNeedToLoadMoviesToHomePage),
+      withLatestFrom(this.store.select(MovieSelectors.getMoviesToHomePage)),
+      map(([action, moviesToHomePage]) => moviesToHomePage),
+      switchMap((moviesToHomePage) => {
+        console.log(moviesToHomePage);
+
+        if (moviesToHomePage.length === 0) {
+          return of(MovieActions.getMoviesToHomePage());
+        }
+        return of(
+          MovieActions.getMoviesToHomePageFailure({
+            error: 'Movies already retrieved',
+          })
+        );
+      })
+    )
+  );
+
   getMoviesToHomePage$ = createEffect(() =>
     this.actions$.pipe(
       ofType(MovieActions.getMoviesToHomePage),
@@ -31,36 +55,22 @@ export class MovieEffects {
     )
   );
 
-  searchMoviesUserTyping$ = createEffect(() =>
-    this.actions$.pipe(
-      ofType(MovieActions.searchMoviesUserTyping),
-      debounceTime(environment.pendingDelayTime),
-      map(({ serchTerm }) => MovieActions.searchMovies({ serchTerm }))
-    )
-  );
 
-  searchMovies$ = createEffect(() =>
+
+  selectMovie$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(MovieActions.searchMovies),
-      switchMap(({ serchTerm }) =>
-        this.movieService.searchMovies(serchTerm).pipe(
-          map((movies) =>
-            MovieActions.searchMoviesSuccess({
-              movies,
-            })
-          ),
-          catchError((error: string) => {
-            console.log(error);
-            return of(
-              MovieActions.searchMoviesFailure({
-                error: 'error searching movies',
-              })
-            );
-          })
-        )
+      ofType(MovieActions.selectMovie),
+      map(({ movieTitleUrl }) =>
+        RouterActions.navigate({
+          commands: ['/movies/', movieTitleUrl],
+        })
       )
     )
   );
 
-  constructor(private actions$: Actions, private movieService: MovieService) {}
+  constructor(
+    private actions$: Actions,
+    private movieService: MovieService,
+    private store: Store<MoviesExtendedAppState>
+  ) {}
 }

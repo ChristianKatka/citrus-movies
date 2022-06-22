@@ -1,0 +1,57 @@
+import { HttpErrorResponse } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { Store } from '@ngrx/store';
+import { debounceTime, of } from 'rxjs';
+import { catchError, map, switchMap } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
+import { MovieService } from 'src/MovieStore/services/movie.service';
+import { MovieActions } from '../actions';
+import { MoviesExtendedAppState } from '../reducers';
+
+@Injectable()
+export class MovieSearchEffects {
+  searchMoviesUserTyping$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(MovieActions.searchMoviesUserTyping),
+      debounceTime(environment.pendingDelayTime),
+      map(({ searchTerm }) => MovieActions.searchMovies({ searchTerm }))
+    )
+  );
+
+  searchMovies$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(MovieActions.searchMovies),
+      switchMap(({ searchTerm }) =>
+        this.movieService.searchMovies(searchTerm).pipe(
+          map((movie) =>
+            MovieActions.searchMoviesSuccess({
+              movie,
+            })
+          ),
+          catchError((error: HttpErrorResponse) => {
+            if (error.status === 404) {
+              return of(
+                MovieActions.searchMoviesSuccess({
+                  movie: undefined,
+                })
+              );
+            }
+            console.log(error);
+            return of(
+              MovieActions.searchMoviesFailure({
+                error: 'error searching movies',
+              })
+            );
+          })
+        )
+      )
+    )
+  );
+
+  constructor(
+    private actions$: Actions,
+    private movieService: MovieService,
+    private store: Store<MoviesExtendedAppState>
+  ) {}
+}

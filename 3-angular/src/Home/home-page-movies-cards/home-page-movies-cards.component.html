@@ -1,12 +1,34 @@
 <main>
-  <citrus-movies-container [width]="'90%'">
+  <citrus-movies-container [width]="'90%'" *ngIf="!isLoadingSearchMovies">
     <section class="heading-wrapper" fxLayoutAlign="space-between center">
       <p class="first">RECOMMENDED FOR YOU</p>
       <p class="secondary">See all</p>
     </section>
 
-    <div class="cards-wrapper" fxLayout="row wrap" fxLayoutGap="25px">
-      <citrus-movies-movie-card></citrus-movies-movie-card>
+    <div
+      *ngIf="homePageMovies.length"
+      class="cards-wrapper"
+      fxLayout="row wrap"
+      fxLayoutGap="25px"
+      style="grid-row-gap: 30px"
+    >
+      <citrus-movies-movie-card
+        *ngFor="let movie of homePageMovies"
+        [movie]="movie"
+        (onSelectMovie)="onSelectMovie.emit($event)"
+      ></citrus-movies-movie-card>
+    </div>
+
+    <div *ngIf="homePageMovies.length === 0">
+      <h1 style="color: white; margin-top: 2rem">
+        No movies found with given search term
+      </h1>
     </div>
   </citrus-movies-container>
+
+  <div style="padding-top: 10rem" *ngIf="isLoadingSearchMovies">
+    <citrus-movies-container [width]="'90%'">
+      <citrus-movies-loading-spinner></citrus-movies-loading-spinner>
+    </citrus-movies-container>
+  </div>
 </main>

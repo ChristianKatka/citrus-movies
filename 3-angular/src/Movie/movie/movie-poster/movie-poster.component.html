@@ -1,0 +1,6 @@
+<img
+  *ngIf="!poster"
+  src="assets/emptyImage.jpg"
+  alt="emptyImage"
+/>
+<img *ngIf="poster" [src]="poster" alt="picture" />

@@ -1,12 +1,13 @@
-<section class="card">
-  <img src="assets/emptyImage.jpg" alt="emptyImage" />
-  <p class="title">Avangers: Endame</p>
-
-  <div class="stars" fxLayout fxLayoutGap="5px">
-    <mat-icon matSuffix>star</mat-icon>
-    <mat-icon matSuffix>star</mat-icon>
-    <mat-icon matSuffix>star</mat-icon>
-    <mat-icon matSuffix>star</mat-icon>
-    <mat-icon matSuffix>star</mat-icon>
-  </div>
+<section class="card" (click)="selectMovie(movie.Title)">
+  <img *ngIf="!movie.Poster" src="assets/emptyImage.jpg" alt="emptyImage" />
+  <img
+    *ngIf="movie.Poster"
+    [src]="movie.Poster"
+    onerror="this.src='assets/emptyImage.jpg'"
+    alt="picture"
+  />
+  <p class="title">{{ movie.Title }}</p>
+  <citrus-movies-stars
+    [starRatingbyImdb]="movie.starRatingbyImdb"
+  ></citrus-movies-stars>
 </section>

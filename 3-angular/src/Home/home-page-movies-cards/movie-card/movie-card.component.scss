@@ -1,3 +1,7 @@
+section {
+  max-width: 9rem;
+}
+
 .card {
   cursor: pointer;
 }
@@ -14,12 +18,4 @@ img {
   margin-top: 5px;
   color: white;
   font-weight: bold;
-}
-.stars {
-  margin-top: 5px;
-}
-
-mat-icon {
-  color: #d9ba0f;
-  transform: scale(0.9);
 }

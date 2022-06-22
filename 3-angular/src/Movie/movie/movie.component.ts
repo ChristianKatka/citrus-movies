@@ -1,8 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'citrus-movies-movie',
   templateUrl: 'movie.component.html',
   styleUrls: ['movie.component.scss'],
 })
-export class MovieComponent {}
+export class MovieComponent {
+  @Input()
+  selectedMovie: any;
+}

@@ -12,7 +12,7 @@ import {
   templateUrl: 'home-feature.container.html',
   styleUrls: ['home-feature.container.scss'],
 })
-export class HomeFeatureContainerComponent implements OnInit {
+export class HomeFeatureContainerComponent {
   isLoading$ = this.store.select(MovieSelectors.isLoading);
 
   homePageMovies$ = this.store.select(MovieSelectors.getMoviesToHomePage);
@@ -26,10 +26,6 @@ export class HomeFeatureContainerComponent implements OnInit {
   );
 
   constructor(private store: Store<MoviesExtendedAppState>) {}
-
-  ngOnInit() {
-    this.store.dispatch(MovieActions.checkIfNeedToLoadMoviesToHomePage());
-  }
 
   onSelectMovie(movieTitle: string) {
     const movieTitleUrl = movieTitle.replace(/\s+/g, '-').toLowerCase();

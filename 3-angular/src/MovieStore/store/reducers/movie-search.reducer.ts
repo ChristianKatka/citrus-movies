@@ -3,13 +3,13 @@ import { Movie } from 'src/shared/models/movie.model';
 import { MovieActions } from '../actions';
 
 export interface MovieSearchState {
-  searchedMovie: Movie | undefined;
+  // searchedMovie: Movie | undefined;
   loadingSearchedMovies: boolean;
   searchTerm: string;
 }
 
 export const initialState: MovieSearchState = {
-  searchedMovie: undefined,
+  // searchedMovie: undefined,
   loadingSearchedMovies: false,
   searchTerm: '',
 };
@@ -31,7 +31,7 @@ const MovieSearchReducer = createReducer(
     return {
       ...state,
       loadingSearchedMovies: false,
-      searchedMovie: movie,
+      // searchedMovie: movie,
     };
   })
 );

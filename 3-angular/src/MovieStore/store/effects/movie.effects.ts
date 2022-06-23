@@ -2,9 +2,8 @@ import { Injectable } from '@angular/core';
 import { RouterActions } from '@app/store/actions';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
-import { debounceTime, of } from 'rxjs';
+import { of } from 'rxjs';
 import { catchError, map, switchMap, withLatestFrom } from 'rxjs/operators';
-import { environment } from 'src/environments/environment';
 import { MovieService } from 'src/MovieStore/services/movie.service';
 import { MovieActions } from '../actions';
 import { MoviesExtendedAppState } from '../reducers';
@@ -49,6 +48,17 @@ export class MovieEffects {
             );
           })
         )
+      )
+    )
+  );
+
+  goToHomePage$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(MovieActions.getMoviesToHomePage),
+      map(() =>
+        RouterActions.navigate({
+          commands: ['/'],
+        })
       )
     )
   );

@@ -14,10 +14,10 @@ Resources:
           - Id: !Join
                 - ""
                 - - "id-"
-                  - Fn::ImportValue: "citrus-movies-s3-bucket-angular-cloudfront-oai"
+                  - Fn::ImportValue: "citrus-movies-angular-bucket-domain-name"
             DomainName: !Join
               - ''
-              - - Fn::ImportValue: 'citrus-movies-angular-bucket-domain-name'
+              - - Fn::ImportValue: 'citrus-movies-angular-bucket-name'
                 - !Sub '.s3-${AWS::Region}.amazonaws.com'
             S3OriginConfig:
               OriginAccessIdentity: !Join

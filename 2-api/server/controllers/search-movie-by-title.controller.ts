@@ -1,7 +1,8 @@
 import { Context, Next } from 'koa';
 import { getMovieByTitleNyTimes } from '../services/get-movie-by-title-ny-times.service';
 import { getMovieByTitleOMDB } from '../services/get-movie-by-title-omdb.service';
-import { countStarsToMovies } from '../utils/count-stars-to-movies.util';
+import { addNyTimesReviewToMovie } from '../utils/add-ny-times-review-to-movie.util';
+import { countStarsToMovie } from '../utils/count-stars-to-movie.util';
 
 export const searchMovieByTitle = async (ctx: Context, next: Next) => {
   const searchTerm = ctx.params.searchTerm;
@@ -9,21 +10,16 @@ export const searchMovieByTitle = async (ctx: Context, next: Next) => {
   const ombdRes = await getMovieByTitleOMDB(searchTerm);
   const nyRes = await getMovieByTitleNyTimes(searchTerm);
 
-  let nyTimesINFO = undefined;
-  if (nyRes && nyRes.results != null && nyRes.results.length <= 1) {
-    nyTimesINFO = nyRes.results[0];
-  }
-
   if (ombdRes.Response === 'False') {
     ctx.response.status = 404;
   }
 
-  const moviesWithStarRating = countStarsToMovies(ombdRes);
+  const movieWithNyInfo = addNyTimesReviewToMovie(ombdRes, nyRes);
+  const movieWithNyInfoAndReviewStars = countStarsToMovie(
+    movieWithNyInfo
+  );
 
-  ctx.response.body = {
-    ...moviesWithStarRating,
-    nyTimesINFO,
-  };
+  ctx.response.body = movieWithNyInfoAndReviewStars;
 
   await next();
 };

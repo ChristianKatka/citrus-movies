@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "deleteobjectsins3": "aws s3 rm s3://citrus-movies-angular --recursive",
-    "copytos3": "aws s3 cp dist/angular s3://citrus-movies-angular --recursive",
+    "copytos3": "aws s3 cp dist/citrus-movie s3://citrus-movies-angular --recursive",
     "deploy": "npm run build && npm run deleteobjectsins3 && npm run copytos3"
   },
   "private": true,

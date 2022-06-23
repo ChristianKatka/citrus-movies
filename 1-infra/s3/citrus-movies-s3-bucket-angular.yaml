@@ -50,6 +50,12 @@ Outputs:
     Export:
       Name: citrus-movies-s3-bucket-angular-cloudfront-oai
 
+  s3bucketName:
+    Description: s3 Bucket Name citrus-movies angular
+    Value: !Ref BucketName
+    Export:
+      Name: citrus-movies-angular-bucket-name
+
   s3appDomainName:
     Description: s3 Bucket Domain Name citrus-movies angular
     Value: !GetAtt CitrusMoviesS3BucketAngular.DomainName

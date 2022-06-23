@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Movie } from 'src/shared/models/movie.model';
 
 @Component({
   selector: 'citrus-movies-movie-card',
@@ -7,7 +8,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class MovieCardComponent {
   @Input()
-  movie: any;
+  movie: Movie | undefined | null = null;
 
   @Output()
   onSelectMovie: EventEmitter<string> = new EventEmitter();

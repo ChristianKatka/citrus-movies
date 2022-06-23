@@ -1,6 +1,7 @@
 import { Context, Next } from 'koa';
 import { getMovieByTitleNyTimes } from '../services/get-movie-by-title-ny-times.service';
 import { getMovieByTitleOMDB } from '../services/get-movie-by-title-omdb.service';
+import { countStarsToMovies } from '../utils/count-stars-to-movies.util';
 
 export const searchMovieByTitle = async (ctx: Context, next: Next) => {
   const searchTerm = ctx.params.searchTerm;
@@ -17,8 +18,10 @@ export const searchMovieByTitle = async (ctx: Context, next: Next) => {
     ctx.response.status = 404;
   }
 
+  const moviesWithStarRating = countStarsToMovies(ombdRes);
+
   ctx.response.body = {
-    ...ombdRes,
+    ...moviesWithStarRating,
     nyTimesINFO,
   };
 

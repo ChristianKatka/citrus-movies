@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Star } from 'src/shared/models/star.model';
 
 @Component({
   selector: 'citrus-movies-stars',
@@ -7,5 +8,5 @@ import { Component, Input } from '@angular/core';
 })
 export class StarsComponent {
   @Input()
-  starRatingbyImdb: any;
+  starRatingbyImdb: Star | undefined = undefined;
 }

@@ -6,6 +6,7 @@ import { debounceTime, of } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { MovieService } from 'src/MovieStore/services/movie.service';
+import { Movie } from 'src/shared/models/movie.model';
 import { MovieActions } from '../actions';
 import { MoviesExtendedAppState } from '../reducers';
 
@@ -24,7 +25,7 @@ export class MovieSearchEffects {
       ofType(MovieActions.searchMovies),
       switchMap(({ searchTerm }) =>
         this.movieService.searchMovies(searchTerm).pipe(
-          map((movie) =>
+          map((movie: Movie) =>
             MovieActions.searchMoviesSuccess({
               movie,
             })

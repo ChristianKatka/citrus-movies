@@ -1,5 +1,9 @@
+:host {
+  padding: 20px;
+}
+
 section {
-  max-width: 9rem;
+  max-width: 7.5rem;
 }
 
 .card {
@@ -7,8 +11,8 @@ section {
 }
 
 img {
-  height: 13rem;
-  width: 9rem;
+  height: 14rem;
+  width: 8rem;
   object-fit: cover;
   border-radius: 6px;
 }

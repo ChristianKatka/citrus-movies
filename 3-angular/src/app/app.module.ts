@@ -5,6 +5,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { RouterState, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { NgxMasonryModule } from 'ngx-masonry';
 import { HomeModule } from 'src/Home/home.module';
 import { MovieModule } from 'src/Movie/movie.module';
 import { MovieStoreModule } from 'src/MovieStore/movie-store.module';
@@ -30,7 +31,8 @@ import { RouterStateSerializer } from './store/router-state.serializer';
     EffectsModule.forRoot(effects),
     HomeModule,
     MovieStoreModule,
-    MovieModule
+    MovieModule,
+    NgxMasonryModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

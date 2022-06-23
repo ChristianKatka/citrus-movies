@@ -18,8 +18,6 @@ export class MovieEffects {
       withLatestFrom(this.store.select(MovieSelectors.getMoviesToHomePage)),
       map(([action, moviesToHomePage]) => moviesToHomePage),
       switchMap((moviesToHomePage) => {
-        console.log(moviesToHomePage);
-
         if (moviesToHomePage.length === 0) {
           return of(MovieActions.getMoviesToHomePage());
         }
@@ -54,8 +52,6 @@ export class MovieEffects {
       )
     )
   );
-
-
 
   selectMovie$ = createEffect(() =>
     this.actions$.pipe(

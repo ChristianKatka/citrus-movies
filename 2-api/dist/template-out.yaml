@@ -45,11 +45,12 @@ Resources:
             Action:
             - ssm:GetParameter
             Resource:
-            - '*'
+            - Fn::Sub: arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:parameter/NY_TIMES_API_KEY
+            - Fn::Sub: arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:parameter/OMDB_API_KEY
   API:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: s3://citrus-movies-api-lambda-bucket/9c0c8d44707a613827ccbaf027f0ff5a
+      CodeUri: s3://citrus-movies-api-lambda-bucket/a9eb26d7cfdf21a7ae80c8333c1450b8
       Handler: index.handler
       MemorySize: 2048
       Role:

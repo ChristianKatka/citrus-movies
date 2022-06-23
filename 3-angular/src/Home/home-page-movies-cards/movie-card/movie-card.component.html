@@ -1,4 +1,4 @@
-<section class="card" (click)="selectMovie(movie.Title)">
+<section class="card" (click)="selectMovie(movie.Title)" *ngIf="movie">
   <img *ngIf="!movie.Poster" src="assets/emptyImage.jpg" alt="emptyImage" />
   <img
     *ngIf="movie.Poster"

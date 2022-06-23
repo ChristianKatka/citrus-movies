@@ -46,9 +46,8 @@ Resources:
                 Action:
                    - ssm:GetParameter
                 Resource: 
-                   - "*"
-                  # VAIHDA tähti pois
-                  #  !Sub arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:parameter/PARAM_NIMI
+                   - !Sub arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:parameter/NY_TIMES_API_KEY
+                   - !Sub arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:parameter/OMDB_API_KEY
 
   API:
     Type: AWS::Serverless::Function

@@ -1,4 +1,4 @@
-<div class="stars" fxLayout fxLayoutGap="5px">
+<div *ngIf="starRatingbyImdb" class="stars" fxLayout fxLayoutGap="5px">
   <mat-icon
     [ngClass]="{
       'star-filled': starRatingbyImdb.firstStarFilled === true,

@@ -1,4 +1,5 @@
 import { createAction, props } from '@ngrx/store';
+import { Movie } from 'src/shared/models/movie.model';
 
 
 export const checkIfNeedToLoadMoviesToHomePage =  createAction(
@@ -9,7 +10,7 @@ export const getMoviesToHomePage = createAction(
 );
 export const getMoviesToHomePageSuccess = createAction(
   '[Movie] Get Movies To Home Page Success',
-  props<{ movies: any }>()
+  props<{ movies: Movie[] }>()
 );
 export const getMoviesToHomePageFailure = createAction(
   '[Movie] Get Movies To Home Page Failure',
@@ -27,7 +28,7 @@ export const searchMovies = createAction(
 );
 export const searchMoviesSuccess = createAction(
   '[Movie] Search Movies Success',
-  props<{ movie: any }>()
+  props<{ movie: Movie | undefined }>()
 );
 export const searchMoviesFailure = createAction(
   '[Movie] Search Movies Failure',

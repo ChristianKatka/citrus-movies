@@ -1,23 +1,19 @@
-<main>
+<main *ngIf="homePageMovies">
   <citrus-movies-container [width]="'90%'" *ngIf="!isLoadingSearchMovies">
     <section class="heading-wrapper" fxLayoutAlign="space-between center">
-      <p class="first">RECOMMENDED FOR YOU</p>
+      <p *ngIf="!isUserSearchingMovies" class="first">RECOMMENDED FOR YOU</p>
+      <p *ngIf="isUserSearchingMovies" class="first">SEARCH RESULTS</p>
       <p class="secondary">See all</p>
     </section>
 
-    <div
-      *ngIf="homePageMovies.length"
-      class="cards-wrapper"
-      fxLayout="row wrap"
-      fxLayoutGap="25px"
-      style="grid-row-gap: 30px"
-    >
+    <ngx-masonry [options]="{animations}">
       <citrus-movies-movie-card
+        ngxMasonryItem
         *ngFor="let movie of homePageMovies"
         [movie]="movie"
         (onSelectMovie)="onSelectMovie.emit($event)"
       ></citrus-movies-movie-card>
-    </div>
+    </ngx-masonry>
 
     <div *ngIf="homePageMovies.length === 0">
       <h1 style="color: white; margin-top: 2rem">

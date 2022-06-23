@@ -16,7 +16,6 @@ export class TopSearchComponent {
   });
 
   onUserInput() {
-    console.log('asd');
     if (!this.searchFormGroup.value.search) return;
     this.inputtedSearchText.emit(this.searchFormGroup.value.search);
   }

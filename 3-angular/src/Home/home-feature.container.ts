@@ -14,9 +14,15 @@ import {
 })
 export class HomeFeatureContainerComponent implements OnInit {
   isLoading$ = this.store.select(MovieSelectors.isLoading);
+
   homePageMovies$ = this.store.select(MovieSelectors.getMoviesToHomePage);
+
   isLoadingSearchMovies$ = this.store.select(
     MovieSearchSelectors.isLoadingSearchMovies
+  );
+
+  isUserSearchingMovies$ = this.store.select(
+    MovieSearchSelectors.isUserSearchingMovies
   );
 
   constructor(private store: Store<MoviesExtendedAppState>) {}

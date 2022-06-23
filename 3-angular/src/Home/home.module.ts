@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { components } from '.';
 import { MaterialModule } from '../material.module';
 import { SharedModule } from '../shared/shared.module';
+import { NgxMasonryModule } from 'ngx-masonry';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { SharedModule } from '../shared/shared.module';
     MaterialModule,
     FlexLayoutModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    NgxMasonryModule,
   ],
 
   declarations: [...components],

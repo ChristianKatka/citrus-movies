@@ -9,7 +9,8 @@
   ></citrus-movies-top-search>
   <citrus-movies-home-page-movies-cards
     [homePageMovies]="homePageMovies$ | async"
-    [isLoadingSearchMovies]="isLoadingSearchMovies$ | async"
+    [isLoadingSearchMovies]="isLoadingSearchMovies$ | async | onlyBoolean"
+    [isUserSearchingMovies]="isUserSearchingMovies$ | async | onlyBoolean"
     (onSelectMovie)="onSelectMovie($event)"
   ></citrus-movies-home-page-movies-cards>
 </main>

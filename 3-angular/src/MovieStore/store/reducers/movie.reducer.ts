@@ -1,9 +1,9 @@
 import { Action, createReducer, on } from '@ngrx/store';
+import { Movie } from 'src/shared/models/movie.model';
 import { MovieActions } from '../actions';
-import { countStarsToMovies } from '../utils/count-stars-to-movies.util';
 
 export interface MovieState {
-  moviesHomePage: { [title: string]: {} };
+  moviesHomePage: { [title: string]: Movie };
   selectedMovie: string | undefined;
   loading: boolean;
 }
@@ -33,16 +33,13 @@ const MovieReducer = createReducer(
   })),
 
   on(MovieActions.getMoviesToHomePageSuccess, (state, { movies }) => {
-    // console.log(JSON.stringify(movies));
-    const movieListWithStars = countStarsToMovies(movies);
-    const moviesList = movieListWithStars.reduce(
-      (items: { [title: string]: any }, item: any) => ({
+    const moviesList = movies.reduce(
+      (items: { [title: string]: Movie }, item: Movie) => ({
         ...items,
         [item.Title]: item,
       }),
       {}
     );
-    console.log(moviesList);
 
     return {
       ...state,
@@ -57,9 +54,9 @@ const MovieReducer = createReducer(
         ...state,
         moviesHomePage: {},
       };
-    const movieListWithStars = countStarsToMovies([movie]);
-    const moviesList = movieListWithStars.reduce(
-      (items: { [title: string]: any }, item: any) => ({
+
+    const moviesList = [movie].reduce(
+      (items: { [title: string]: Movie }, item: Movie) => ({
         ...items,
         [item.Title]: item,
       }),

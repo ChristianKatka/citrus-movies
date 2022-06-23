@@ -1,5 +1,7 @@
 # citrus-movies
 Pikku äppi josta voi selata leffoja, nähdä niiden tietoja ja lukea New York times:n arvostelut elokuvista. 
+Käy testaileen äppiä: [Citrus-Movies](https://dqlzp81abxdmc.cloudfront.net)
+
 ( Käytetty kahta julkista API:a. [OMDB API](http://www.omdbapi.com/) ja [NYT API](https://developer.nytimes.com/docs/movie-reviews-api/1/overview) )
 
 ## Infra

@@ -10,12 +10,15 @@ Julkisten APIen avaimet tallennettu parameter storeen cryptattyna AWS:n default 
 
 
 ## Etusivu
-<img width="377" alt="Screen Shot 2022-06-23 at 20 28 49" src="https://user-images.githubusercontent.com/42738047/175360927-f173bbab-4377-4bad-9868-dc0e1b7bf73b.png">
+<img width="372" alt="Screen Shot 2022-06-23 at 21 26 03" src="https://user-images.githubusercontent.com/42738047/175369007-0dd2a36a-e459-44ee-87c3-bd92143e32de.png">
+
 
 
 ## Elokuvan haku
-<img width="375" alt="Screen Shot 2022-06-23 at 20 29 07" src="https://user-images.githubusercontent.com/42738047/175360958-8bc087a7-6d0b-41bf-a3e2-625802a6d5ae.png">
+<img width="373" alt="Screen Shot 2022-06-23 at 21 26 52" src="https://user-images.githubusercontent.com/42738047/175369040-42b8bc15-0df1-4b97-89b5-0fef3b320dd0.png">
+
 
 
 ## Elokuva näkymä
-<img width="376" alt="Screen Shot 2022-06-23 at 20 29 33" src="https://user-images.githubusercontent.com/42738047/175360992-e61431e0-6c32-4c37-a6a3-0fac3782e446.png">
+<img width="376" alt="Screen Shot 2022-06-23 at 21 27 03" src="https://user-images.githubusercontent.com/42738047/175369064-63f4c425-c122-442d-8e50-2d0367afb2ec.png">
+

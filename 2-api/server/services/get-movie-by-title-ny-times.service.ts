@@ -11,5 +11,7 @@ export const getMovieByTitleNyTimes = async (title: string) => {
   const response = await fetch(
     `${NY_TIMES_URL_SEARCH}${title}&api-key=${nyTimesApiKeyValue}`
   );
-  return await response.json();
+
+  const nyInfo = await response.json();
+  return nyInfo;
 };

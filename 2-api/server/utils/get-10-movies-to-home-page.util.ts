@@ -26,6 +26,7 @@ export const get10MoviesToHomePage = async () => {
 
     return movieWithNyInfoAndReviewStars;
   });
+  const movies = await Promise.all(moviesPromises);
 
-  return Promise.all(moviesPromises);
+  return movies;
 };

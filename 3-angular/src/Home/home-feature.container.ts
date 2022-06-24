@@ -10,7 +10,7 @@ import {
 @Component({
   selector: 'citrus-movies-home',
   templateUrl: 'home-feature.container.html',
-  styleUrls: ['home-feature.container.scss'],
+  styleUrls: ['home-feature.container.scss']
 })
 export class HomeFeatureContainerComponent {
   isLoading$ = this.store.select(MovieSelectors.isLoading);

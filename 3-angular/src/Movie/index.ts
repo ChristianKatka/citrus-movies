@@ -1,5 +1,6 @@
 import { MovieFeatureContainerComponent } from './movie-feature.container';
 import { ActorsComponent } from './movie/actors/actors.component';
+import { GoBackComponent } from './movie/go-back-button/go-back-button.component';
 import { MoviePosterComponent } from './movie/movie-poster/movie-poster.component';
 import { MovieComponent } from './movie/movie.component';
 import { NyTimesInfoComponent } from './movie/ny-times-info/ny-times-info.component';
@@ -11,5 +12,6 @@ export const components: any[] = [
   NyTimesInfoComponent,
   OmdbInfoComponent,
   MoviePosterComponent,
-  ActorsComponent
+  ActorsComponent,
+  GoBackComponent
 ];

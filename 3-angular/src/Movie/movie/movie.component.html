@@ -3,6 +3,8 @@
     [poster]="selectedMovie.Poster"
   ></citrus-movies-movie-poster>
 
+  <citrus-movies-go-back-button (goBack)="this.goBack.emit()"></citrus-movies-go-back-button>
+
   <citrus-movies-container [width]="'90%'">
     <section class="heading-wrapper" fxLayoutAlign="space-between center">
       <h3 class="title">{{ selectedMovie.Title }}</h3>

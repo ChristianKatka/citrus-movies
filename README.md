@@ -11,13 +11,17 @@ Julkisten APIen avaimet tallennettu parameter storeen cryptattyna AWS:n default 
 ![citrus-movies-infra](https://user-images.githubusercontent.com/42738047/175360345-1c3208bd-a230-465a-ad3f-bc9c523207fe.jpeg)
 
 
+
+
 ## Etusivu
 <img width="372" alt="Screen Shot 2022-06-23 at 21 26 03" src="https://user-images.githubusercontent.com/42738047/175369007-0dd2a36a-e459-44ee-87c3-bd92143e32de.png">
 
 
 
+
 ## Elokuvan haku
 <img width="373" alt="Screen Shot 2022-06-23 at 21 26 52" src="https://user-images.githubusercontent.com/42738047/175369040-42b8bc15-0df1-4b97-89b5-0fef3b320dd0.png">
+
 
 
 

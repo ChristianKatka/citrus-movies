@@ -1,29 +1,23 @@
 <main>
-  <h3
-    *ngIf="!nyTimesINFO"
-    style="font-size: 22px; margin-top: 1rem"
-    class="bold"
-  >
-    New York Times review not found
-  </h3>
+  <h3 *ngIf="!nyTimesINFO" class="bold">New York Times review not found</h3>
 
-  <div *ngIf="nyTimesINFO" style="margin-top: 1rem">
-    <h3 style="font-size: 22px" class="bold">Ny times review</h3>
-    <div fxLayoutAlign="start center" style="margin-top: 1rem">
+  <div *ngIf="nyTimesINFO">
+    <h3 class="bold">Ny times review</h3>
+    <div fxLayoutAlign="start center" class="mt-1">
       <p fxFlex="40" class="bold">mpaa rating</p>
-      <p style="color: #8b8b8b">
+      <p class="value-text">
         {{ nyTimesINFO.mpaa_rating }}
       </p>
     </div>
     <div fxLayout>
       <p fxFlex="40" class="bold">Review article</p>
-      <a style="color: #8b8b8b" [href]="nyTimesINFO.link.url" target="_blank">{{
+      <a class="value-text" [href]="nyTimesINFO.link.url" target="_blank">{{
         nyTimesINFO.link.suggested_link_text
       }}</a>
     </div>
     <div fxLayout>
       <p fxFlex="40" class="bold">Critics pick</p>
-      <p style="color: #8b8b8b">
+      <p class="value-text">
         {{ nyTimesINFO.critics_pick }}
       </p>
     </div>

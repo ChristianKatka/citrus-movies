@@ -1,9 +1,20 @@
-.bold {
+@use "../../../styles.scss" as s;
+
+
+.key {
   font-weight: bold;
   color: white;
 }
 
+.value {
+  color: s.$citrus-movie-dark-gray;
+}
+
 .plot {
   margin-top: 1.5rem;
-  color: #8b8b8b;
+  color: s.$citrus-movie-dark-gray;
+}
+
+.mt-1 {
+  margin-top: 1rem;
 }

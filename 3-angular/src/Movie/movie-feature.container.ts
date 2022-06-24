@@ -6,7 +6,6 @@ import { MovieSelectors } from 'src/MovieStore/store/selectors';
 
 @Component({
   templateUrl: 'movie-feature.container.html',
-  styleUrls: ['movie-feature.container.scss'],
 })
 export class MovieFeatureContainerComponent implements OnDestroy {
   selectedMovie$ = this.store.select(MovieSelectors.getSelectedMovie);

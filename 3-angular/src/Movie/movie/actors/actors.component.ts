@@ -7,5 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class ActorsComponent {
   @Input()
-  actors: any;
+  actors = '';
 }

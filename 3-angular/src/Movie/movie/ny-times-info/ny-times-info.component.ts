@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { NyTimesInfo } from 'src/shared/models/movie.model';
 
 @Component({
   selector: 'citrus-movies-ny-times-info',
@@ -7,5 +8,5 @@ import { Component, Input } from '@angular/core';
 })
 export class NyTimesInfoComponent {
   @Input()
-  nyTimesINFO: any;
+  nyTimesINFO: NyTimesInfo | undefined | null = null;
 }

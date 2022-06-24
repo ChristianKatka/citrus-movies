@@ -3,13 +3,13 @@ import { Movie } from 'src/shared/models/movie.model';
 import { MovieActions } from '../actions';
 
 export interface MovieState {
-  moviesHomePage: { [title: string]: Movie };
+  movies: { [title: string]: Movie };
   selectedMovie: string | undefined;
   loading: boolean;
 }
 
 export const initialState: MovieState = {
-  moviesHomePage: {},
+  movies: {},
   selectedMovie: undefined,
   loading: false,
 };
@@ -44,7 +44,7 @@ const MovieReducer = createReducer(
     return {
       ...state,
       loading: false,
-      moviesHomePage: moviesList,
+      movies: moviesList,
     };
   }),
 
@@ -52,7 +52,7 @@ const MovieReducer = createReducer(
     if (!movie)
       return {
         ...state,
-        moviesHomePage: {},
+        movies: {},
       };
 
     const moviesList = [movie].reduce(
@@ -64,7 +64,7 @@ const MovieReducer = createReducer(
     );
     return {
       ...state,
-      moviesHomePage: moviesList,
+      movies: moviesList,
     };
   })
 );

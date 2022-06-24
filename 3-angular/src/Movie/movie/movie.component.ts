@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Movie } from 'src/shared/models/movie.model';
 
 @Component({
   selector: 'citrus-movies-movie',
@@ -7,5 +8,5 @@ import { Component, Input } from '@angular/core';
 })
 export class MovieComponent {
   @Input()
-  selectedMovie: any;
+  selectedMovie: Movie | undefined | null = null;
 }

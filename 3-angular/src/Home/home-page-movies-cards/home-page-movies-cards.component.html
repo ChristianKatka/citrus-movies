@@ -1,29 +1,29 @@
-<main *ngIf="homePageMovies">
+<main *ngIf="movies">
   <citrus-movies-container [width]="'90%'" *ngIf="!isLoadingSearchMovies">
     <section class="heading-wrapper" fxLayoutAlign="space-between center">
-      <p *ngIf="!isUserSearchingMovies" class="first">RECOMMENDED FOR YOU</p>
-      <p *ngIf="isUserSearchingMovies" class="first">SEARCH RESULTS</p>
-      <p class="secondary">See all</p>
+      <p *ngIf="!isUserSearchingMovies" class="main-text">RECOMMENDED FOR YOU</p>
+      <p *ngIf="isUserSearchingMovies" class="main-text">SEARCH RESULTS</p>
+      <p class="secondary-text">See all</p>
     </section>
 
     <ngx-masonry [options]="{animations}">
       <citrus-movies-movie-card
         ngxMasonryItem
-        *ngFor="let movie of homePageMovies"
+        *ngFor="let movie of movies"
         [movie]="movie"
         (onSelectMovie)="onSelectMovie.emit($event)"
       ></citrus-movies-movie-card>
     </ngx-masonry>
 
-    <div *ngIf="homePageMovies.length === 0">
-      <h1 style="color: white; margin-top: 2rem">
+    <div *ngIf="movies.length === 0">
+      <h1 class="no-movies-found-text">
         No movies found with given search term
       </h1>
     </div>
   </citrus-movies-container>
 
-  <div style="padding-top: 1rem" *ngIf="isLoadingSearchMovies">
-    <citrus-movies-container [width]="'90%'">
+  <div class="loading-spinner-wrapper" *ngIf="isLoadingSearchMovies">
+    <citrus-movies-container>
       <citrus-movies-loading-spinner></citrus-movies-loading-spinner>
     </citrus-movies-container>
   </div>

@@ -8,18 +8,26 @@ main {
 .heading-wrapper {
   margin-top: 2rem;
 
-  .first {
+  .main-text {
     color: #9eaec3;
     font-weight: bold;
     font-size: 15px;
   }
 
-  .secondary {
+  .secondary-text {
     font-size: 15px;
     color: #4e5866;
   }
 }
 
+.no-movies-found-text {
+  color: white;
+  margin-top: 2rem;
+}
 .cards-wrapper {
   margin-top: 1rem;
+}
+
+.loading-spinner-wrapper {
+  padding-top: 1rem;
 }

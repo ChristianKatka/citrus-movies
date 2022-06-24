@@ -1,14 +1,10 @@
-<!-- <main>
-  <citrus-movies-top-search></citrus-movies-top-search>
-  <citrus-movies-home-page-movies-cards></citrus-movies-home-page-movies-cards>
-</main> -->
 
 <main *ngIf="!(isLoading$ | async)">
   <citrus-movies-top-search
-    (inputtedSearchText)="onInputtedSearchText($event)"
+    (searchMoviesUserTyping)="onSearchMoviesUserTyping($event)"
   ></citrus-movies-top-search>
   <citrus-movies-home-page-movies-cards
-    [homePageMovies]="homePageMovies$ | async"
+    [movies]="movies$ | async"
     [isLoadingSearchMovies]="isLoadingSearchMovies$ | async | onlyBoolean"
     [isUserSearchingMovies]="isUserSearchingMovies$ | async | onlyBoolean"
     (onSelectMovie)="onSelectMovie($event)"

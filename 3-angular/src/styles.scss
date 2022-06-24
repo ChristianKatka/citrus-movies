@@ -1,12 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+
+$citrus-movie-dark-gray: #8b8b8b;
+$citrus-movie-dark-blue: #273546;
+
 
 html,
 body {
   height: 100%;
-  background-color: #273546;
+  background-color: $citrus-movie-dark-blue;
 }
 body {
-  background-color: #273546;
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
@@ -31,3 +33,6 @@ body {
     }
   }
 }
+
+
+

@@ -6,7 +6,7 @@ interface MovieLink {
   suggested_link_text: string;
 }
 
-interface NyTimesInfo {
+export interface NyTimesInfo {
   display_title: string;
   mpaa_rating: string;
   critics_pick: number;

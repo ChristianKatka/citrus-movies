@@ -7,14 +7,14 @@ import { Component, Input } from '@angular/core';
 })
 export class OmdbInfoComponent {
   @Input()
-  plot: any;
+  plot = '';
 
   @Input()
-  production: any;
+  production = '';
 
   @Input()
-  genre: any;
+  genre = '';
 
   @Input()
-  year: any;
+  year = '';
 }

@@ -1,6 +1,7 @@
+<img *ngIf="!poster" src="assets/emptyImage.jpg" alt="emptyImage" />
 <img
-  *ngIf="!poster"
-  src="assets/emptyImage.jpg"
-  alt="emptyImage"
+  *ngIf="poster"
+  [src]="poster"
+  onerror="this.src='assets/emptyImage.jpg'"
+  alt="picture"
 />
-<img *ngIf="poster" [src]="poster" alt="picture" />

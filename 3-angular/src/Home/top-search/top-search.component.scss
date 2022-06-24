@@ -1,10 +1,6 @@
 @import "../../styles.scss";
 @include disable-auto-zoom-on-iphone-input-fields;
 
-mat-icon {
-  font-size: 1.3em;
-}
-
 main {
   background-color: #5ba2d4;
 }
@@ -21,8 +17,12 @@ h3 {
 
 form {
   margin-bottom: 6rem;
-}
 
-input {
-  color: white;
+  input {
+    color: white;
+  }
+
+  mat-icon {
+    font-size: 1.3em;
+  }
 }

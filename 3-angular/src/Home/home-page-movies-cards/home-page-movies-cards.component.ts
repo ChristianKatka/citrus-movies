@@ -10,7 +10,7 @@ import { Movie } from 'src/shared/models/movie.model';
 })
 export class HomePageMoviesCardsComponent {
   @Input()
-  homePageMovies: Movie[] | undefined | null = null;
+  movies: Movie[] | undefined | null = null;
 
   @Input()
   isLoadingSearchMovies = false;

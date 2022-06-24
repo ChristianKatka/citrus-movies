@@ -14,10 +14,10 @@ export class MovieEffects {
   checkIfNeedToLoadMoviesToHomePage$ = createEffect(() =>
     this.actions$.pipe(
       ofType(MovieActions.checkIfNeedToLoadMoviesToHomePage),
-      withLatestFrom(this.store.select(MovieSelectors.getMoviesToHomePage)),
-      map(([action, moviesToHomePage]) => moviesToHomePage),
-      switchMap((moviesToHomePage) => {
-        if (moviesToHomePage.length === 0) {
+      withLatestFrom(this.store.select(MovieSelectors.getMovies)),
+      map(([action, movies]) => movies),
+      switchMap((movies) => {
+        if (movies.length === 0) {
           return of(MovieActions.getMoviesToHomePage());
         }
         return of(

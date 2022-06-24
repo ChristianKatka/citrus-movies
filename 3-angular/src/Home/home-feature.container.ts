@@ -15,7 +15,7 @@ import {
 export class HomeFeatureContainerComponent {
   isLoading$ = this.store.select(MovieSelectors.isLoading);
 
-  homePageMovies$ = this.store.select(MovieSelectors.getMoviesToHomePage);
+  movies$ = this.store.select(MovieSelectors.getMovies);
 
   isLoadingSearchMovies$ = this.store.select(
     MovieSearchSelectors.isLoadingSearchMovies
@@ -34,7 +34,7 @@ export class HomeFeatureContainerComponent {
     );
   }
 
-  onInputtedSearchText(searchTerm: string) {
+  onSearchMoviesUserTyping(searchTerm: string) {
     this.store.dispatch(MovieActions.searchMoviesUserTyping({ searchTerm }));
   }
 }

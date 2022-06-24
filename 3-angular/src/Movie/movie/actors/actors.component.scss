@@ -1,3 +1,5 @@
+@use "../../../styles.scss" as s;
+
 main {
   margin-top: 1rem;
 }
@@ -11,5 +13,5 @@ img {
 
 p {
   margin-top: 5px;
-  color: #8b8b8b;
+  color: s.$citrus-movie-dark-gray;
 }

@@ -1,8 +1,24 @@
+@use "../../../styles.scss" as s;
+
+
+main {
+  margin-bottom: 2rem;
+}
+
+h3 {
+  font-size: 22px;
+  margin-top: 1rem;
+}
+
 .bold {
   font-weight: bold;
   color: white;
 }
 
-main {
-  margin-bottom: 2rem;
+.value-text {
+  color: s.$citrus-movie-dark-gray;
+}
+
+mt-1 {
+  margin-top: 1rem;
 }

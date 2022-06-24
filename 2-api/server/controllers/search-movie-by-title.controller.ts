@@ -15,9 +15,7 @@ export const searchMovieByTitle = async (ctx: Context, next: Next) => {
   }
 
   const movieWithNyInfo = addNyTimesReviewToMovie(ombdRes, nyRes);
-  const movieWithNyInfoAndReviewStars = countStarsToMovie(
-    movieWithNyInfo
-  );
+  const movieWithNyInfoAndReviewStars = countStarsToMovie(movieWithNyInfo);
 
   ctx.response.body = movieWithNyInfoAndReviewStars;
 

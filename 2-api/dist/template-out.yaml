@@ -50,7 +50,7 @@ Resources:
   API:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: s3://citrus-movies-api-lambda-bucket/243d13f8f25d321f2492877aee1cf50c
+      CodeUri: s3://citrus-movies-api-lambda-bucket/e73ca8e82bdf622fe4503a30f84ef286
       Handler: index.handler
       MemorySize: 2048
       Role:
